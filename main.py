@@ -9,7 +9,7 @@ numero_adversaire = 0
 nombre_victoires = 0
 nombre_defaites = 0
 numero_combat = 0
-force_adversaire = random.randint(1,5)
+force_adversaire = random.randint(1,10)
 
 print("bienvenue sur le MEILLEUR jeu de l'univers !!! ")
 while x == 1:
@@ -30,13 +30,14 @@ while x == 1:
 		"Combat %d : %d / %d"%(numero_adversaire,force_adversaire,niveau_vie,
 										   numero_combat,nombre_victoires,nombre_defaites))
 		score_de = random.randint(1,6)
-		print("Lancer du dé :%d"%(score_de))
+		score_de2 = random.randint(1,6)
+		print("Lancer des dés :%d,%d = %d"%(score_de,score_de2,score_de+score_de2))
 # combat défaite
 		if score_de <= force_adversaire:
 			niveau_vie = niveau_vie - force_adversaire
 			print("vous perdez le combat\nNiveau de vie :%d"%(niveau_vie))
 			nombre_defaites += 1
-			force_adversaire = random.randint(1, 5)
+			force_adversaire = random.randint(1,10)
 # partie terminée
 			if niveau_vie <= 0:
 				print("La partie est terminée, vous avez vaincu %d monstre(s)."%(nombre_victoires))
@@ -47,24 +48,25 @@ while x == 1:
 			nombre_victoires_consecutives += 1
 			print("vous gagnez le combat\nNiveau de vie :%d\nNombre de victoires consécutives :%d"%(niveau_vie,nombre_victoires_consecutives))
 			nombre_victoires += 1
-			force_adversaire = random.randint(1, 5)
+			force_adversaire = random.randint(1,10)
 # boss
 			if nombre_victoires == 3:
 				print("vous tombez face au maitre du donjon")
-				force_adversaire = random.randint(3,6)
+				force_adversaire = random.randint(3,12)
 				print("Adversaire :%d "
 					  "Force du boss :%d "
 					  "Niveau de vie du joueur :%d "
 					  "Combat %d : %d / %d" % (numero_adversaire, force_adversaire, niveau_vie,
 											   numero_combat, nombre_victoires, nombre_defaites))
 				score_de = random.randint(1, 6)
-				print("Lancer du dé :%d" % (score_de))
+				score_de2 = random.randint(1, 6)
+				print("Lancer des dés :%d,%d = %d" % (score_de, score_de2, score_de + score_de2))
 # combat boss défaite
 				if score_de <= force_adversaire:
 					niveau_vie = niveau_vie - force_adversaire
 					print("vous perdez le combat\nNiveau de vie :%d" % (niveau_vie))
 					nombre_defaites += 1
-					force_adversaire = random.randint(1, 5)
+					force_adversaire = random.randint(1,10)
 # partie terminée
 					if niveau_vie <= 0:
 						print("La partie est terminée, vous avez vaincu %d monstre(s)." % (nombre_victoires))
@@ -76,7 +78,7 @@ while x == 1:
 					print("vous gagnez le combat\nNiveau de vie :%d\nNombre de victoires consécutives :%d" % (
 					niveau_vie, nombre_victoires_consecutives))
 					nombre_victoires += 1
-					force_adversaire = random.randint(1, 5)
+					force_adversaire = random.randint(1,10)
 			else:
 				pass
 # fuite combat
@@ -85,7 +87,7 @@ while x == 1:
 		nombre_victoires_consecutives = 0
 		niveau_vie -= 1
 		numero_adversaire += 1
-		force_adversaire = random.randint(1, 5)
+		force_adversaire = random.randint(1,10)
 # tutoriel
 	elif choix == 3:
 		print("Pour réussir un combat, il faut que la valeur du dé lancé soit supérieure à la force de l’adversaire.\n"
