@@ -79,8 +79,6 @@ while x == 1:
 					niveau_vie, nombre_victoires_consecutives))
 					nombre_victoires += 1
 					force_adversaire = random.randint(1,10)
-			else:
-				pass
 # fuite combat
 	elif choix == 2:
 		print("vous perdez un point de vie")
