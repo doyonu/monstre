@@ -4,7 +4,6 @@ import random
 
 niveau_vie = 20
 nombre_victoires_consecutives = 0
-x = 1
 numero_adversaire = 0
 nombre_victoires = 0
 nombre_defaites = 0
@@ -12,7 +11,7 @@ numero_combat = 0
 force_adversaire = random.randint(1,10)
 
 print("bienvenue sur le MEILLEUR jeu de l'univers !!! ")
-while x == 1:
+while niveau_vie > 0:
 #choix possible
 	print("Vous tombez face à face avec un adversaire de difficulté :%d"%(force_adversaire))
 	choix = int(input("Que voulez-vous faire ? " 
@@ -37,11 +36,8 @@ while x == 1:
 			niveau_vie = niveau_vie - force_adversaire
 			print("vous perdez le combat\nNiveau de vie :%d"%(niveau_vie))
 			nombre_defaites += 1
+			nombre_victoires_consecutives = 0
 			force_adversaire = random.randint(1,10)
-# partie terminée
-			if niveau_vie <= 0:
-				print("La partie est terminée, vous avez vaincu %d monstre(s)."%(nombre_victoires))
-				x = 0
 # combat victoire
 		else:
 			niveau_vie = niveau_vie + force_adversaire
@@ -50,10 +46,10 @@ while x == 1:
 			nombre_victoires += 1
 			force_adversaire = random.randint(1,10)
 # boss
-			if nombre_victoires == 3:
+			if nombre_victoires % 3 == 0:
 				print("\nvous tombez face au maitre du donjon!!!")
 				numero_adversaire += 1
-				force_adversaire = random.randint(3,12)
+				force_adversaire = random.randint(4,12)
 				print("Adversaire: %d "
 					  "Force du boss: %d "
 					  "Niveau de vie du joueur: %d "
@@ -67,11 +63,8 @@ while x == 1:
 					niveau_vie = niveau_vie - force_adversaire
 					print("vous perdez le combat\nNiveau de vie :%d" % (niveau_vie))
 					nombre_defaites += 1
+					nombre_victoires_consecutives = 0
 					force_adversaire = random.randint(1,10)
-# partie terminée
-					if niveau_vie <= 0:
-						print("La partie est terminée, vous avez vaincu %d monstre(s)." % (nombre_victoires))
-						x = 0
 # combat boss victoire
 				else:
 					niveau_vie = niveau_vie + force_adversaire
@@ -83,7 +76,6 @@ while x == 1:
 # fuite combat
 	elif choix == 2:
 		print("vous perdez un point de vie")
-		nombre_victoires_consecutives = 0
 		niveau_vie -= 1
 		numero_adversaire += 1
 		force_adversaire = random.randint(1,10)
@@ -98,6 +90,8 @@ while x == 1:
 # partie terminée
 	elif choix == 4:
 		print("Merci et au revoir...")
-		x = 0
+		niveau_vie = 0
 	else:
 		print("un misclick (surement)")
+# partie terminée
+print("La partie est terminée, vous avez vaincu %d monstre(s)." % (nombre_victoires))
