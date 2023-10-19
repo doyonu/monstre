@@ -24,16 +24,16 @@ while x == 1:
 	if choix == 1:
 		numero_combat += 1
 		numero_adversaire += 1
-		print("Adversaire :%d "
-		"Force de l’adversaire :%d "
-		"Niveau de vie du joueur :%d "
-		"Combat %d : %d / %d"%(numero_adversaire,force_adversaire,niveau_vie,
-										   numero_combat,nombre_victoires,nombre_defaites))
-		score_de = random.randint(1,6)
+		print("Adversaire: %d "
+		"Force de l’adversaire: %d "
+		"Niveau de vie du joueur: %d "
+		"Combat %d : %d / %d"%(numero_adversaire,force_adversaire,niveau_vie,numero_combat,nombre_victoires,nombre_defaites))
+		score_de1 = random.randint(1,6)
 		score_de2 = random.randint(1,6)
-		print("Lancer des dés :%d,%d = %d"%(score_de,score_de2,score_de+score_de2))
+		Score_de = score_de1 + score_de2
+		print("Lancer des dés :%d,%d = %d"%(score_de1,score_de2,Score_de))
 # combat défaite
-		if score_de <= force_adversaire:
+		if Score_de <= force_adversaire:
 			niveau_vie = niveau_vie - force_adversaire
 			print("vous perdez le combat\nNiveau de vie :%d"%(niveau_vie))
 			nombre_defaites += 1
@@ -51,18 +51,19 @@ while x == 1:
 			force_adversaire = random.randint(1,10)
 # boss
 			if nombre_victoires == 3:
-				print("vous tombez face au maitre du donjon")
+				print("\nvous tombez face au maitre du donjon!!!")
+				numero_adversaire += 1
 				force_adversaire = random.randint(3,12)
-				print("Adversaire :%d "
-					  "Force du boss :%d "
-					  "Niveau de vie du joueur :%d "
-					  "Combat %d : %d / %d" % (numero_adversaire, force_adversaire, niveau_vie,
-											   numero_combat, nombre_victoires, nombre_defaites))
-				score_de = random.randint(1, 6)
+				print("Adversaire: %d "
+					  "Force du boss: %d "
+					  "Niveau de vie du joueur: %d "
+					  "Combat %d : %d / %d" % (numero_adversaire,force_adversaire,niveau_vie,numero_combat,nombre_victoires,nombre_defaites))
+				score_de1 = random.randint(1, 6)
 				score_de2 = random.randint(1, 6)
-				print("Lancer des dés :%d,%d = %d" % (score_de, score_de2, score_de + score_de2))
+				Score_de = score_de1 + score_de2
+				print("Lancer des dés :%d,%d = %d" % (score_de1, score_de2, Score_de))
 # combat boss défaite
-				if score_de <= force_adversaire:
+				if Score_de <= force_adversaire:
 					niveau_vie = niveau_vie - force_adversaire
 					print("vous perdez le combat\nNiveau de vie :%d" % (niveau_vie))
 					nombre_defaites += 1
@@ -79,8 +80,6 @@ while x == 1:
 					niveau_vie, nombre_victoires_consecutives))
 					nombre_victoires += 1
 					force_adversaire = random.randint(1,10)
-			else:
-				pass
 # fuite combat
 	elif choix == 2:
 		print("vous perdez un point de vie")
