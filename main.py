@@ -14,7 +14,7 @@ force_adversaire = random.randint(1,10)
 print("bienvenue sur le MEILLEUR jeu de l'univers !!! ")
 # boucle tant que joueur est vivant
 while niveau_vie > 0:
-#choix possible
+#choix possibles
 	print("Vous tombez face à face avec un adversaire de difficulté :%d"%(force_adversaire))
 	choix = int(input("Que voulez-vous faire ? " 
 		"\n1- Combattre cet adversaire"
