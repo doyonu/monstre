@@ -10,7 +10,9 @@ nombre_defaites = 0
 numero_combat = 0
 force_adversaire = random.randint(1,10)
 
+#début jeu
 print("bienvenue sur le MEILLEUR jeu de l'univers !!! ")
+# boucle tant que joueur est vivant
 while niveau_vie > 0:
 #choix possible
 	print("Vous tombez face à face avec un adversaire de difficulté :%d"%(force_adversaire))
@@ -19,7 +21,7 @@ while niveau_vie > 0:
 		"\n2- Contourner cet adversaire et aller ouvrir une autre porte"
 		"\n3- Afficher les règles du jeu"
 		"\n4- Quitter la partie\n"))
-# début combat
+# début combat (choix 1)
 	if choix == 1:
 		numero_combat += 1
 		numero_adversaire += 1
@@ -45,7 +47,7 @@ while niveau_vie > 0:
 			print("vous gagnez le combat\nNiveau de vie :%d\nNombre de victoires consécutives :%d"%(niveau_vie,nombre_victoires_consecutives))
 			nombre_victoires += 1
 			force_adversaire = random.randint(1,10)
-# boss
+# combat boss à chaque 3 victoires
 			if nombre_victoires % 3 == 0:
 				print("\nvous tombez face au maitre du donjon!!!")
 				numero_adversaire += 1
@@ -73,13 +75,13 @@ while niveau_vie > 0:
 					niveau_vie, nombre_victoires_consecutives))
 					nombre_victoires += 1
 					force_adversaire = random.randint(1,10)
-# fuite combat
+# fuite combat (choix 2)
 	elif choix == 2:
 		print("vous perdez un point de vie")
 		niveau_vie -= 1
 		numero_adversaire += 1
 		force_adversaire = random.randint(1,10)
-# tutoriel
+# tutoriel (choix 3)
 	elif choix == 3:
 		print("Pour réussir un combat, il faut que la valeur du dé lancé soit supérieure à la force de l’adversaire.\n"
 		"Dans ce cas, le niveau de vie du joueur est augmenté de la force de l’adversaire.\n"
@@ -87,11 +89,11 @@ while niveau_vie > 0:
 		"Dans ce cas, le niveau de vie du joueur est diminué de la force de l’adversaire.\n\n"
 		"La partie se termine lorsque les points de vie du joueur tombent sous 0.\n"
 		"Le joueur peut combattre ou éviter chaque adversaire, dans le cas de l’évitement, il y a une pénalité de 1 point de vie.\n")
-# partie terminée
+# partie terminée (choix 4)
 	elif choix == 4:
 		print("Merci et au revoir...")
 		niveau_vie = 0
 	else:
 		print("un misclick (surement)")
-# partie terminée
+# fin jeux
 print("La partie est terminée, vous avez vaincu %d monstre(s)." % (nombre_victoires))
